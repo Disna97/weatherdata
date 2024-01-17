@@ -8,10 +8,12 @@ class Constants{
   static final String API_KEY = "706282fcffb04b8f5588715bb213606d";
 
 
-   static commonAppbar(String title){
-    return AppBar(leading: const Padding(
+   static commonAppbar(BuildContext context,String title){
+    return AppBar(leading:  Padding(
       padding:  EdgeInsets.only(left: 8.0),
-      child: Icon(Icons.arrow_back_ios),
+      child: IconButton(icon: Icon(Icons.arrow_back_ios_new),onPressed:(){
+        Navigator.pop(context);
+      }),
     ),
       centerTitle: true,
       leadingWidth: 50,

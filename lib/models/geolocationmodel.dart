@@ -1,5 +1,9 @@
 
+import 'dart:convert';
 
+List<GeoLocationApi> geoLocationApiFromJson(String str) => List<GeoLocationApi>.from(json.decode(str).map((x) => GeoLocationApi.fromJson(x)));
+
+String geoLocationApiToJson(List<GeoLocationApi> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 class GeoLocationApi {
   String? name;
   Map<String, String>? localNames;
@@ -19,7 +23,7 @@ class GeoLocationApi {
 
   factory GeoLocationApi.fromJson(Map<String, dynamic> json) => GeoLocationApi(
     name: json["name"],
-    localNames: Map.from(json["local_names"]).map((k, v) => MapEntry<String, String>(k, v)),
+    //localNames: Map.from(json["local_names"]).map((k, v) => MapEntry<String, String>(k, v)),
     lat: json["lat"].toDouble(),
     lon: json["lon"].toDouble(),
     country: json["country"],
