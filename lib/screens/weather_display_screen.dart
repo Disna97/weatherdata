@@ -25,7 +25,7 @@ class _WeathwerDisplayScreenState extends State<WeathwerDisplayScreen> {
       appBar: Constants.commonAppbar(context, "Weather Display Screen"),
       body:Consumer<LocationSelectionProvider>(
           builder: (context, snapshot, _) {
-            return Container(
+            return snapshot.displayItemModel.isNotEmpty?Container(
               child: ListTile(title: Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
@@ -48,7 +48,7 @@ class _WeathwerDisplayScreenState extends State<WeathwerDisplayScreen> {
 
                 ],
               ),),
-            );
+            ):Container();
           })
 
     );
